@@ -1,5 +1,5 @@
 import useLeadContext from "../contexts/LeadContext";
-import StatsCard from "../components/statsCard";
+import StatsCard from "../components/StatsCard";
 import "../css/statscard.css";
 import LeadsTable from "../components/LeadsTable";
 
