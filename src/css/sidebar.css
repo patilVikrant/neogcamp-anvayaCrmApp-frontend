@@ -1,0 +1,33 @@
+.sidebar-link {
+  display: inline-block;
+  width: 100%;
+  text-decoration: none;
+  color: black;
+  padding: 0.5rem 1rem;
+  border-radius: 0.2rem;
+}
+
+.sidebar {
+  position: relative;
+  transform: translateX(0);
+}
+
+@media (max-width: 640px) {
+  .sidebar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 20;
+    transform: translateX(-100%);
+  }
+
+  .sidebar.open {
+    transform: translateX(0);
+  }
+}
+
+.active-link {
+  color: #4550b8;
+  background-color: #e2e3f5;
+  font-weight: bold;
+}
