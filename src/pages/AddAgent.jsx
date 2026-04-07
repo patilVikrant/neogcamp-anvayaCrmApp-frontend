@@ -20,6 +20,13 @@ const AddAgent = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     // console.log(salesAgentFormData);
+    const { email } = salesAgentFormData;
+    const emailRegex = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/;
+
+    if (!emailRegex.test(email)) {
+      alert("Please enter a valid email");
+      return;
+    }
 
     await addNewAgent(salesAgentFormData);
     setSalesAgentFormData({

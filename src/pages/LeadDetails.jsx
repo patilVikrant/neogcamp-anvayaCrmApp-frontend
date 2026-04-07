@@ -147,178 +147,119 @@ const LeadDetails = () => {
             </div>
           </div>
           <div className="d-flex flex-column gap-4 mt-3">
-            <div className="card border-0 shadow-sm rounded-2">
-              <div className="card-header bg-white">
-                <h4>Lead Information</h4>
+            <div className="card border-0 shadow-sm rounded-3">
+              <div className="card-header bg-white py-3">
+                <h5 className="mb-0 fw-semibold">Lead Information</h5>
               </div>
+
               <div className="card-body">
-                <div className="row">
-                  <div className="col-md-10 mb-2">
-                    <div className="row">
-                      <div className="col-5 text-muted pe-2 fw-semibold fs-5">
-                        Lead Name:
-                      </div>
-                      <div className="col-7 fw-semibold fs-5">
-                        {selectedLead?.name}
-                      </div>
+                <div className="row gy-3">
+                  <div className="col-md-6 d-flex">
+                    <div className="w-50">Lead Name</div>
+                    <div className="w-50 fw-medium">{selectedLead?.name}</div>
+                  </div>
+                  <div className="col-md-6 d-flex">
+                    <div className="w-50">Source</div>
+                    <div className="w-50 fw-medium">{selectedLead?.source}</div>
+                  </div>
+                  <div className="col-md-6 d-flex">
+                    <div className="w-50">Status</div>
+                    <div className="w-50 fw-medium">
+                      <span
+                        className={`${getStatusClass(selectedLead?.status)} px-2 py-1 rounded`}
+                      >
+                        {selectedLead?.status}
+                      </span>
                     </div>
                   </div>
-                  <div className="col-md-10 mb-4">
-                    <div className="row">
-                      <div className="col-5 text-muted pe-2 fw-semibold fs-5">
-                        Source:
-                      </div>
-                      <div className="col-7 fw-semibold fs-5">
-                        {selectedLead?.source}
-                      </div>
+                  <div className="col-md-6 d-flex">
+                    <div className="w-50">Priority</div>
+                    <div className="w-50 fw-medium">
+                      <span
+                        className={`${getPriorityClass(selectedLead?.priority)} px-2 py-1 rounded`}
+                      >
+                        {selectedLead?.priority}
+                      </span>
                     </div>
                   </div>
-                  <div className="col-md-10 mb-4">
-                    <div className="row">
-                      <div className="col-5 text-muted pe-2 fw-semibold fs-5">
-                        Status:
-                      </div>
-                      <div className="col-7 fw-semibold fs-5">
-                        <span
-                          className={`${getStatusClass(selectedLead?.status)} px-3 py-2 rounded-2`}
-                        >
-                          {selectedLead?.status}
-                        </span>
-                      </div>
+                  <div className="col-md-6 d-flex">
+                    <div className="w-50">Sales Agent</div>
+                    <div className="w-50 fw-medium">
+                      {selectedLead?.salesAgent.name}
                     </div>
                   </div>
-                  <div className="col-md-10 mb-4">
-                    <div className="row">
-                      <div className="col-5 text-muted pe-2 fw-semibold fs-5">
-                        Priority:
-                      </div>
-                      <div className="col-7 fw-semibold fs-5">
-                        <span
-                          className={`${getPriorityClass(selectedLead?.priority)} px-3 py-2 rounded-2`}
-                        >
-                          {selectedLead?.priority}
-                        </span>
-                      </div>
-                    </div>
+                  <div className="col-md-6 d-flex">
+                    <div className="w-50">Time to Close</div>
+                    <div className="w-50 fw-medium">{`${selectedLead?.timeToClose} days`}</div>
                   </div>
-                  <div className="col-md-10 mb-2">
-                    <div className="row">
-                      <div className="col-5 text-muted pe-2 fw-semibold fs-5">
-                        Sales Agent:
-                      </div>
-                      <div className="col-7 fw-semibold fs-5">
-                        {selectedLead?.salesAgent.name}
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-md-10 mb-2">
-                    <div className="row">
-                      <div className="col-5 text-muted pe-2 fw-semibold fs-5">
-                        Time to Close:
-                      </div>
-                      <div className="col-7 fw-semibold fs-5">
-                        {`${selectedLead?.timeToClose} days`}
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-md-10 mb-2">
-                    <div className="row">
-                      <div className="col-5 text-muted pe-2 fw-semibold fs-5">
-                        Tags:
-                      </div>
-                      <div className="col-7 fw-semibold fs-5">
-                        {selectedLead?.tags.join(", ")}
-                      </div>
+                  <div className="col-md-6 d-flex">
+                    <div className="w-50">Tags</div>
+                    <div className="w-50 fw-medium">
+                      {selectedLead?.tags.join(", ")}
                     </div>
                   </div>
                 </div>
               </div>
-              <div className="col-md-12">
-                <div className="card-footer bg-white">
-                  <div className="row">
-                    <div className="col-4 text-muted">Created At:</div>
-                    <div className="col-4 fw-semibold">
-                      {formatDateAndTime(selectedLead?.createdAt)}
-                    </div>
-                  </div>
-                  <div className="row">
-                    <div className="col-4 text-muted">Updated At:</div>
-                    <div className="col-4 fw-semibold">
-                      {formatDateAndTime(selectedLead?.updatedAt)}
-                    </div>
-                  </div>
+
+              <div className="card-footer bg-white small text-muted">
+                <div className="d-flex flex-column">
+                  <span>
+                    Created At: {formatDateAndTime(selectedLead?.createdAt)}
+                  </span>
+                  <span>
+                    Updated At: {formatDateAndTime(selectedLead?.updatedAt)}
+                  </span>
                 </div>
               </div>
             </div>
 
             {!commentLoading && (
-              <div className="card border-0 shadow-sm rounded-2">
-                <div className="card-header bg-white">
-                  <h4>Comments & Activity</h4>
+              <div className="card border-0 shadow-sm rounded-3">
+                <div className="card-header bg-white py-3">
+                  <h5 className="mb-0 fw-semibold">Comments & Activity</h5>
                 </div>
+
                 <div className="card-body">
-                  <div className="row g-4">
-                    <div className="col-lg-6">
-                      <div
-                        style={
-                          comments?.length !== 0
-                            ? {
-                                maxHeight: "250px",
-                                overflowY: "auto",
-                              }
-                            : {}
-                        }
-                        className="card-body"
-                      >
-                        {comments?.length !== 0 ? (
-                          <div className="d-flex flex-column gap-2">
-                            {comments.map((comment) => (
-                              <div
-                                key={comment?._id}
-                                className="d-flex flex-column gap-1"
-                              >
-                                <div className="d-flex flex-column">
-                                  <strong>{comment?.author}</strong>
-                                  <small>
-                                    {formatDateAndTime(comment?.createdAt)}
-                                  </small>
-                                </div>
-                                <div>
-                                  <p>{comment?.commentText}</p>
-                                </div>
+                  <div
+                    style={{ maxHeight: "250px", overflowY: "auto" }}
+                    className="mb-4"
+                  >
+                    {comments?.length !== 0 ? (
+                      <div className="d-flex flex-column gap-3">
+                        {[...comments]
+                          .sort(
+                            (a, b) =>
+                              new Date(b.createdAt) - new Date(a.createdAt),
+                          )
+                          .map((comment) => (
+                            <div
+                              key={comment._id}
+                              className="border-bottom pb-2"
+                            >
+                              <div className="d-flex justify-content-between">
+                                <strong>{comment.author}</strong>
+                                <small className="text-muted">
+                                  {formatDateAndTime(comment.createdAt)}
+                                </small>
                               </div>
-                            ))}
-                          </div>
-                        ) : (
-                          <>
-                            <div className="border rounded-4 p-4 bg-light text-center mb-4">
-                              <div
-                                className="mx-auto mb-3 rounded-circle d-flex align-items-center justify-content-center"
-                                style={{
-                                  width: "65px",
-                                  height: "65px",
-                                  backgroundColor: "#e9ecfb",
-                                  fontSize: "24px",
-                                }}
-                              >
-                                💬
-                              </div>
-                              <h5 className="fw-bold mb-2">No comments yet</h5>
-                              <p className="text-muted">
-                                Start the conversation by adding the first
-                                update for this lead
+                              <p className="mb-0 small">
+                                {comment.commentText}
                               </p>
                             </div>
-                          </>
-                        )}
+                          ))}
                       </div>
-                    </div>
-                    <div className="col-lg-5">
-                      <h5 className="mb-3">Add Comment</h5>
-                      <form onSubmit={handleSubmit}>
-                        <label className="form-label">Author:</label>
+                    ) : (
+                      <p className="text-muted text-center">No comments yet</p>
+                    )}
+                  </div>
+
+                  <div>
+                    <h5 className="fw-semibold mb-3">Add Comment</h5>
+                    <form onSubmit={handleSubmit}>
+                      <div className="mb-3">
+                        <label className="form-label">Author</label>
                         <select
-                          className="form-select mb-4"
+                          className="form-select"
                           name="author"
                           value={commentFormData.author}
                           onChange={handleChange}
@@ -331,23 +272,27 @@ const LeadDetails = () => {
                             </option>
                           ))}
                         </select>
-                        <label className="form-label">Comment Text:</label>
+                      </div>
+
+                      <div className="mb-3">
+                        <label className="form-label">Comment</label>
                         <input
-                          className="form-control mb-4"
+                          className="form-control"
                           type="text"
                           name="commentText"
                           value={commentFormData.commentText}
                           onChange={handleChange}
                           required
                         />
-                        <button
-                          style={{ backgroundColor: "#4550b8" }}
-                          className="btn w-100 fw-semibold text-white"
-                        >
-                          Add Comment
-                        </button>
-                      </form>
-                    </div>
+                      </div>
+
+                      <button
+                        className="btn text-white w-100 fw-semibold"
+                        style={{ backgroundColor: "#4550b8" }}
+                      >
+                        Add Comment
+                      </button>
+                    </form>
                   </div>
                 </div>
               </div>
