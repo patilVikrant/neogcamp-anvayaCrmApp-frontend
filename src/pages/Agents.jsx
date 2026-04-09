@@ -4,16 +4,16 @@ import useLeadContext from "../contexts/LeadContext";
 
 const Agents = () => {
   const { agents } = useAgentContext();
-  console.log(agents);
+  // console.log(agents);
   const { leads } = useLeadContext();
-  console.log(leads);
+  // console.log(leads);
 
   const agentsWithLeads =
     agents &&
     leads &&
     agents.map((agent) => {
-      const assignedLeads = leads.filter(
-        (lead) => lead.salesAgent._id === agent._id,
+      const assignedLeads = leads.filter((lead) =>
+        lead.salesAgent ? lead.salesAgent._id === agent._id : false,
       );
 
       return {

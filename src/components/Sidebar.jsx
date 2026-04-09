@@ -64,6 +64,16 @@ const Sidebar = ({ show }) => {
             Reports
           </Link>
         </li>
+        <li className="mt-3">
+          <Link
+            to="/settings"
+            className={
+              path === "/settings" ? "sidebar-link active-link" : "sidebar-link"
+            }
+          >
+            Settings
+          </Link>
+        </li>
       </ul>
     </div>
   );

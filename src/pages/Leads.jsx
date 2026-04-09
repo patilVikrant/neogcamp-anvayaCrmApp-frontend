@@ -42,7 +42,10 @@ const Leads = () => {
       filteredLeads && filteredLeads.filter((lead) => lead.status === status);
   }
 
-  if (agent) {
+  if (agent === "unassigned") {
+    filteredLeads =
+      filteredLeads && filteredLeads.filter((lead) => !lead.salesAgent);
+  } else if (agent) {
     filteredLeads =
       filteredLeads &&
       filteredLeads.filter((lead) => lead.salesAgent.name === agent);
@@ -110,6 +113,7 @@ const Leads = () => {
                     }
                   >
                     <option value="">Filter by Agent</option>
+                    <option value="unassigned">Unassigned Agent</option>
                     {agentsNames.map((a) => (
                       <option key={a} value={a}>
                         {a}

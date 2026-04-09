@@ -59,7 +59,7 @@ const LeadsTable = ({ leads }) => {
                   </span>
                 </td>
                 <td className="py-3 text-muted fw-semibold">
-                  {lead.salesAgent.name}
+                  {lead.salesAgent ? lead.salesAgent.name : "Unassigned Agent"}
                 </td>
                 <td className="py-3">
                   <span

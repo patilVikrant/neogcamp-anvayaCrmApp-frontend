@@ -53,7 +53,10 @@ const EditLead = () => {
   const handleChange = (e) => {
     const { name, value } = e.target;
     // console.log(name, value);
-    setFormData((prevValue) => ({ ...prevValue, [name]: value }));
+    setFormData((prevValue) => ({
+      ...prevValue,
+      [name]: value,
+    }));
   };
 
   const handleTagChange = (e) => {
@@ -70,12 +73,19 @@ const EditLead = () => {
     try {
       e.preventDefault();
       // console.log(formData);
-      await updateLead(id, formData);
+      const payload = {
+        ...formData,
+        salesAgent:
+          formData.salesAgent === "unassigned" || formData.salesAgent === ""
+            ? null
+            : formData.salesAgent,
+      };
+      await updateLead(id, payload);
 
       setFormData({
         name: "",
         source: "",
-        salesAgent: "",
+        salesAgent: "unassigned",
         status: "New",
         tags: [],
         timeToClose: "",
@@ -138,9 +148,9 @@ const EditLead = () => {
                       value={formData.salesAgent}
                       onChange={handleChange}
                       name="salesAgent"
-                      required
                     >
                       <option value="">Select Sales Agent:</option>
+                      <option value="unassigned">Unassigned Agent</option>
                       {agents.map((agent) => (
                         <option key={agent._id} value={agent._id}>
                           {agent.name}

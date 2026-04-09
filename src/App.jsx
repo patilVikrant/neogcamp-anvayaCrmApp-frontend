@@ -10,6 +10,7 @@ import Sales from "./pages/Sales";
 import Agents from "./pages/Agents";
 import AddAgent from "./pages/AddAgent";
 import Reports from "./pages/Reports";
+import Settings from "./pages/Settings";
 import LeadProvider from "./contexts/LeadProvider";
 import AgentProvider from "./contexts/AgentProvider";
 import { useState } from "react";
@@ -36,6 +37,7 @@ function App() {
                 <Route path="/agents" element={<Agents />} />
                 <Route path="/add-agent" element={<AddAgent />} />
                 <Route path="/reports" element={<Reports />} />
+                <Route path="/settings" element={<Settings />} />
               </Routes>
             </div>
           </div>

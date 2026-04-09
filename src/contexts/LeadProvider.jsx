@@ -79,10 +79,16 @@ export default function LeadProvider({ children }) {
     const lostLeads = numberOfLeadsAddedInLastSevenDays - wonLeads;
     // console.log(lostLeads);
 
-    const winPercent = (wonLeads / numberOfLeadsAddedInLastSevenDays) * 100;
+    const winPercent = (
+      (wonLeads / numberOfLeadsAddedInLastSevenDays) *
+      100
+    ).toFixed(2);
     // console.log(winPercent);
 
-    const lossPercent = (lostLeads / numberOfLeadsAddedInLastSevenDays) * 100;
+    const lossPercent = (
+      (lostLeads / numberOfLeadsAddedInLastSevenDays) *
+      100
+    ).toFixed(2);
     // console.log(lossPercent);
 
     return {
@@ -153,6 +159,7 @@ export default function LeadProvider({ children }) {
     <LeadContext.Provider
       value={{
         leads,
+        setLeads,
         addNewLead,
         deleteLead,
         updateLead,

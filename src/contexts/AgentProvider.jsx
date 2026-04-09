@@ -19,13 +19,20 @@ export default function AgentProvider({ children }) {
     setAgents((prevValue) => [...prevValue, newAgent.data.agent]);
   };
 
+  const deleteAgent = async (id) => {
+    const deletedAgent = await api.delete(`/agents/${id}`);
+    setAgents((prevValue) =>
+      prevValue.filter((agent) => agent._id !== deletedAgent.data.agent._id),
+    );
+  };
+
   const getTopAgentsByClosedLeads = (leads, agents) => {
     const closedLeads = leads.filter((lead) => lead.status === "Closed");
 
     const agentsWithClosedLeads = agents
       .map((agent) => {
-        const assignedClosedLeads = closedLeads.filter(
-          (lead) => lead.salesAgent._id === agent._id,
+        const assignedClosedLeads = closedLeads.filter((lead) =>
+          lead.salesAgent ? lead.salesAgent._id === agent._id : false,
         );
         return {
           ...agent,
@@ -41,7 +48,7 @@ export default function AgentProvider({ children }) {
 
   return (
     <AgentContext.Provider
-      value={{ agents, addNewAgent, getTopAgentsByClosedLeads }}
+      value={{ agents, addNewAgent, getTopAgentsByClosedLeads, deleteAgent }}
     >
       {children}
     </AgentContext.Provider>

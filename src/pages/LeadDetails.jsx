@@ -112,7 +112,9 @@ const LeadDetails = () => {
     setFormData({
       name: selectedLead.name,
       source: selectedLead.source,
-      salesAgent: selectedLead.salesAgent._id,
+      salesAgent: selectedLead.salesAgent
+        ? selectedLead.salesAgent._id
+        : "unassigned",
       status: selectedLead.status,
       tags: selectedLead.tags,
       timeToClose: selectedLead.timeToClose,
@@ -185,7 +187,9 @@ const LeadDetails = () => {
                   <div className="col-md-6 d-flex">
                     <div className="w-50">Sales Agent</div>
                     <div className="w-50 fw-medium">
-                      {selectedLead?.salesAgent.name}
+                      {selectedLead?.salesAgent
+                        ? selectedLead.salesAgent.name
+                        : "Unassigned Agent"}
                     </div>
                   </div>
                   <div className="col-md-6 d-flex">

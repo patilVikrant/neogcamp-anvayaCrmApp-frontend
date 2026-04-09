@@ -14,6 +14,7 @@ const Navbar = ({ toggleSidebar }) => {
     if (path === "/agents") return "Sales Agents";
     if (path === "/add-agent") return "Add New Sales Agent";
     if (path === "/reports") return "Reports";
+    if (path === "/settings") return "Settings";
 
     return "Anvaya CRM";
   };
