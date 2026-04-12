@@ -1,6 +1,7 @@
 import useAgentContext from "../contexts/AgentContext";
 import useLeadContext from "../contexts/LeadContext";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const AddLead = () => {
   const { addNewLead, formData, setFormData } = useLeadContext();
@@ -66,6 +67,7 @@ const AddLead = () => {
       e.preventDefault();
       // console.log(formData);
       await addNewLead(formData);
+      toast.success("Lead added successfully");
 
       setFormData({
         name: "",

@@ -1,7 +1,7 @@
-import React from "react";
 import useLeadContext from "../contexts/LeadContext";
 import useAgentContext from "../contexts/AgentContext";
 import { useNavigate, useParams } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const EditLead = () => {
   const { id } = useParams();
@@ -81,6 +81,8 @@ const EditLead = () => {
             : formData.salesAgent,
       };
       await updateLead(id, payload);
+
+      toast.success("Lead updated successfully");
 
       setFormData({
         name: "",

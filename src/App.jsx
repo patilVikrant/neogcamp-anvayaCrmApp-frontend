@@ -14,6 +14,8 @@ import Settings from "./pages/Settings";
 import LeadProvider from "./contexts/LeadProvider";
 import AgentProvider from "./contexts/AgentProvider";
 import { useState } from "react";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   const [showSidebar, setShowSidebar] = useState(false);
@@ -41,6 +43,11 @@ function App() {
               </Routes>
             </div>
           </div>
+          <ToastContainer
+            position="top-center"
+            autoClose={2000}
+            hideProgressBar={false}
+          />
         </Router>
       </AgentProvider>
     </LeadProvider>

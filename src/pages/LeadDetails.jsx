@@ -3,6 +3,7 @@ import useLeadContext from "../contexts/LeadContext";
 import api from "../api/axiosConfig";
 import { useEffect, useState } from "react";
 import useAgentContext from "../contexts/AgentContext";
+import { toast } from "react-toastify";
 
 const LeadDetails = () => {
   const { leads, deleteLead, setFormData } = useLeadContext();
@@ -90,6 +91,7 @@ const LeadDetails = () => {
   const handleLeadDelete = async () => {
     try {
       await deleteLead(id);
+      toast.success("Lead deleted successfully");
       navigate("/leads");
     } catch (error) {
       console.log("Failed to delete the Lead", error);
@@ -105,6 +107,7 @@ const LeadDetails = () => {
     e.preventDefault();
     // console.log(commentFormData);
     addNewComment(id, commentFormData);
+    toast.success("Comment added successfully");
     setCommentFormData({ author: "", commentText: "" });
   };
 

@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import useAgentContext from "../contexts/AgentContext";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const AddAgent = () => {
   const { addNewAgent } = useAgentContext();
@@ -24,11 +25,12 @@ const AddAgent = () => {
     const emailRegex = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/;
 
     if (!emailRegex.test(email)) {
-      alert("Please enter a valid email");
+      toast.error("Please enter a valid email");
       return;
     }
 
     await addNewAgent(salesAgentFormData);
+    toast.success("Sales Agent added successfully");
     setSalesAgentFormData({
       name: "",
       email: "",
