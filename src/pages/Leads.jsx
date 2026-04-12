@@ -48,7 +48,7 @@ const Leads = () => {
   } else if (agent) {
     filteredLeads =
       filteredLeads &&
-      filteredLeads.filter((lead) => lead.salesAgent.name === agent);
+      filteredLeads.filter((lead) => lead?.salesAgent?.name === agent);
   }
 
   if (sortBy === "priority") {
@@ -66,7 +66,7 @@ const Leads = () => {
       filteredLeads.sort((a, b) => a.timeToClose - b.timeToClose);
   }
 
-  // console.log(filteredLeads);
+  console.log(filteredLeads);
 
   const resetBtnHandler = () => {
     setSearchParams({});
