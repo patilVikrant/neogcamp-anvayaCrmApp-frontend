@@ -46,10 +46,10 @@ export function usePieChartData() {
 
   const dataForLeadsStatus = {
     labels: [
+      `Closed ${closedLeadPercent}%`,
       `Contacted ${contactedLeadPercent}%`,
       `Qualified ${qualifiedLeadPercent}%`,
       `Proposal Sent ${proposalSentLeadPercent}%`,
-      `Closed ${closedLeadPercent}%`,
       `New ${newLeadPercent}%`,
     ],
     datasets: [
