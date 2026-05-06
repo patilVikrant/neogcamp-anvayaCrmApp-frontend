@@ -177,7 +177,7 @@ Creates a new sales agent<br>
 Sample Response:<br>
 
 ```
-{message: "Agent added successfully, agent:{_id, name, email }}
+{message: "Agent added successfully", agent:{_id, name, email }}
 ```
 
 ### **DELETE /agents/:id**<br>
@@ -187,7 +187,7 @@ Deletes a sales agent<br>
 Sample Response:<br>
 
 ```
-{message: "Agent deleted successfully, item:{_id, name, email}}
+{message: "Agent deleted successfully", item:{_id, name, email}}
 ```
 
 ---
