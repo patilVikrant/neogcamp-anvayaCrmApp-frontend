@@ -32,7 +32,7 @@ const Navbar = ({ toggleSidebar }) => {
       </button>
       <div className="d-flex align-items-center">
         <img src={logo} width="35" className="me-2" alt="logo" />
-        <h4>ANVAYA CRM</h4>
+        <h4>AXENTRA CRM</h4>
       </div>
       <div className="flex-grow-1 text-center">
         <h4>{getTitle()}</h4>
