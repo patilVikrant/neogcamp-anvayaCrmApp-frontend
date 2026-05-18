@@ -1,4 +1,4 @@
-# Anvaya – CRM App
+# Axentra – CRM App
 
 A Fullstack CRM App with functionality such as lead listing, filtering the leads, adding new leads, updating lead, deleting leads, adding and deleting sales agent, displays sales agent, displays reports in form of charts.
 Built with React for frontend, Node/Express for backend, MongoDB for Database, Bootstrap for styling and Chart.js for charts.
@@ -7,15 +7,15 @@ Built with React for frontend, Node/Express for backend, MongoDB for Database, B
 
 ## Demo Link
 
-[Live Demo](https://neogcamp-anvaya-crm-app-frontend.vercel.app/)
+[Live Demo](https://axentra-crm-app-frontend.vercel.app/)
 
 ---
 
 ## Quick Start
 
 ```
-git clone https://github.com/patilVikrant/neogcamp-anvayaCrmApp-frontend.git
-cd neogcamp-anvayaCrmApp-frontend
+git clone https://github.com/patilVikrant/axentra-crmApp-frontend.git
+cd axentra-crmApp-frontend
 npm install
 npm run dev
 ```
